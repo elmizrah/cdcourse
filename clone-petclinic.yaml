@@ -1,0 +1,7 @@
+- hosts: localhost
+  tasks:
+  - name: ensure GIT is at the latest version
+    yum: name=git state=latest
+    become: yes
+  - name: ensure petclinic is cloned
+    git: repo=https://github.com/elmizrah/spring-petclinic.git  dest=/home/ec2-user/petclinic
